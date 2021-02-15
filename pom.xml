@@ -11,6 +11,8 @@
     <modules>
         <module>lab-1-core</module>
         <module>lab-2-core</module>
+        <module>lab-3-core</module>
+        <module>lab-5-aop</module>
     </modules>
 
 
