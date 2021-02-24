@@ -1,15 +1,27 @@
 package com.luxoft.springcore.objects;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.persistence.*;
+
+@Entity
 public class UsualPerson implements Person {
+
+    @Id
+    @GeneratedValue
     private int id;
 
     private String name;
+    @ManyToOne
     private City city;
     private int distanceTravelled = 0;
     
 	private int age;
 	private boolean isProgrammer;
-    
+
+    public UsualPerson() {
+    }
+
     public UsualPerson(String name, int age, City city) {
     	this.name = name;
     	this.age = age;

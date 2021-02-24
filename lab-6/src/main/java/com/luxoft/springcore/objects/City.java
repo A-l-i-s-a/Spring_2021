@@ -1,9 +1,18 @@
 package com.luxoft.springcore.objects;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class City {
 
+	@Id
+	@GeneratedValue
 	private int id;
 	private String name;
+	@ManyToOne
 	private Country country;
 
 	public City() {
