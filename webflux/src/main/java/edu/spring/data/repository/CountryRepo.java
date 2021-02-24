@@ -1,13 +1,18 @@
 package edu.spring.data.repository;
 
 import edu.spring.data.domain.Country;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
-import java.util.List;
+public interface CountryRepo extends ReactiveMongoRepository<Country, Integer> {
 
-public interface CountryRepo extends JpaRepository<Country, Integer> {
-    List<Country> findAllByCount(int count);
+    Flux<Country> findAll();
 
-    List<Country> findAllByCountIsLessThan(int count);
+    Flux<Country> findAllByCount(int count);
+
+    Flux<Country> findAllByCountIsLessThan(int count);
+
+    Mono<Country> save(Mono<Country> country);
 
 }

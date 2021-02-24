@@ -1,13 +1,12 @@
 package edu.spring.data.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
-@Entity
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
 public class Country {
     @Id
-    @GeneratedValue
     private int id;
     private String name;
     private int count;
@@ -15,7 +14,7 @@ public class Country {
     public Country() {
     }
 
-    public Country( String name, int count) {
+    public Country(String name, int count) {
         this.count = count;
         this.name = name;
     }

@@ -4,15 +4,12 @@ import edu.spring.data.domain.Country;
 import edu.spring.data.domain.Person;
 import edu.spring.data.repository.CountryRepo;
 import edu.spring.data.repository.PersonRepository;
-import edu.spring.data.repository.PersonSpetificayion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.domain.PageRequest;
 
 import javax.annotation.PostConstruct;
 
-@SuppressWarnings("SpringJavaAutowiredFieldsWarningInspection")
 @SpringBootApplication
 public class Main {
 
@@ -66,20 +63,20 @@ public class Main {
         countryRepo.save(new Country("nam8e", 100000000));
         countryRepo.save(new Country("name9", 10));
 
-        System.out.println(repository.findByName("A") + "\n===================================");
-        repository.findAllByName("Pushkin").forEach(System.out::println);
-        System.out.println(repository.countByName("Pushkin"));
-        repository.findAll(PageRequest.of(4, 2)).forEach(System.out::println);
-        System.out.println("=========================================");
-        repository.findAllByNameLike("Pus%").forEach(System.out::println);
-
-        System.out.println("=========================================");
-        countryRepo.findAllByCount(10).forEach(System.out::println);
-
-        System.out.println("=========================================");
-        countryRepo.findAllByCountIsLessThan(1000000).forEach(System.out::println);
-
-        System.out.println("=========================================");
-        repository.findAll(PersonSpetificayion.nameLike("Push")).forEach(System.out::println);
+//        System.out.println(repository.findByName("A") + "\n===================================");
+//        repository.findAllByName("Pushkin").forEach(System.out::println);
+//        System.out.println(repository.countByName("Pushkin"));
+//        repository.findAll((Specification<Person>) PageRequest.of(4, 2)).forEach(System.out::println);
+//        System.out.println("=========================================");
+//        repository.findAllByNameLike("Pus%").forEach(System.out::println);
+//
+//        System.out.println("=========================================");
+//        countryRepo.findAllByCount(10).forEach(System.out::println);
+//
+//        System.out.println("=========================================");
+//        countryRepo.findAllByCountIsLessThan(1000000).forEach(System.out::println);
+//
+//        System.out.println("=========================================");
+//        repository.findAll(PersonSpetificayion.nameLike("Push")).forEach(System.out::println);
     }
 }

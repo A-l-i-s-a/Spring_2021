@@ -1,14 +1,13 @@
 package edu.spring.data.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import javax.persistence.Id;
 
-@Entity
+@Document
 public class Person {
 
     @Id
-    @GeneratedValue
     private int id;
     private String name;
 

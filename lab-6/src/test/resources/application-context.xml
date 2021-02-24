@@ -1,9 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:p="http://www.springframework.org/schema/p" 
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-				http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
-				
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean name="russia" class="com.luxoft.springcore.objects.Country">
+        <property name="name" value="Russia"/>
+        <property name="codeName" value="RU"/>
+    </bean>
+	<bean name="austria" class="com.luxoft.springcore.objects.Country">
+        <property name="name" value="Austria"/>
+        <property name="codeName" value="AT"/>
+    </bean>
+	<bean name="bulgaria" class="com.luxoft.springcore.objects.Country">
+        <property name="name" value="Bulgaria"/>
+        <property name="codeName" value="BG"/>
+    </bean>
+	<bean name="poland" class="com.luxoft.springcore.objects.Country">
+        <property name="name" value="Poland"/>
+        <property name="codeName" value="PL"/>
+    </bean>
+
+    <bean name="moscow" class="com.luxoft.springcore.objects.City">
+        <property name="name" value="moscow"/>
+        <property name="country" ref="russia"/>
+    </bean>
+    <bean name="warsaw" class="com.luxoft.springcore.objects.City">
+        <property name="name" value="warsaw"/>
+    </bean>
+    <bean name="krakow" class="com.luxoft.springcore.objects.City">
+        <property name="name" value="krakow"/>
+        <property name="country" ref="poland"/>
+    </bean>
+    <bean name="sofia" class="com.luxoft.springcore.objects.City">
+        <property name="name" value="sofia"/>
+        <property name="country" ref="bulgaria"/>
+    </bean>
+    <bean name="vienna" class="com.luxoft.springcore.objects.City">
+        <property name="name" value="vienna"/>
+        <property name="country" ref="austria"/>
+    </bean>
+
+	<bean name="russianPerson" class="com.luxoft.springcore.objects.UsualPerson">
+        <property name="name" value="Viktor Ponedelnik"/>
+        <property name="age" value="35"/>
+        <property name="country" ref="moscow"/>
+    </bean>
+	<bean name="bulgarianPerson" class="com.luxoft.springcore.objects.UsualPerson">
+        <property name="name" value="Emil Kostadinov"/>
+        <property name="age" value="37"/>
+        <property name="country" ref="sofia"/>
+    </bean>
+
+	<bean name="operatorsBean" class="com.luxoft.springcore.objects.Operators">
+        <property name="ageComparisonTest" value="true"/>
+        <property name="distanceComparisonTest" value="true"/>
+    </bean>
+
+    <bean name="connection1" class="com.luxoft.springcore.travel.Connection">
+        <property name="source" ref="moscow"/>
+        <property name="destination" ref="warsaw"/>
+        <property name="distance" value="1130"/>
+    </bean>
+    <bean name="connection2" class="com.luxoft.springcore.travel.Connection">
+        <property name="source" ref="warsaw"/>
+        <property name="destination" ref="krakow"/>
+        <property name="distance" value="256"/>
+    </bean>
+    <bean name="connection3" class="com.luxoft.springcore.travel.Connection">
+        <property name="source" ref="sofia"/>
+        <property name="destination" ref="vienna"/>
+        <property name="distance" value="835"/>
+    </bean>
+    <bean name="connection4" class="com.luxoft.springcore.travel.Connection">
+        <property name="source" ref="vienna"/>
+        <property name="destination" ref="krakow"/>
+        <property name="distance" value="331"/>
+    </bean>
 </beans>

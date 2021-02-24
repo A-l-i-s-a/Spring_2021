@@ -2,12 +2,27 @@ package com.luxoft.springcore.travel;
 
 import com.luxoft.springcore.objects.City;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Connection {
 
+	@Id
+	@GeneratedValue
+	private int id;
+
+	@ManyToOne
 	private City source;
+	@ManyToOne
 	private City destination;
 	private int distance;
-	
+
+	public Connection() {
+	}
+
 	public Connection(City source, City destination, int distance) {
 		this.source = source;
 		this.destination = destination;

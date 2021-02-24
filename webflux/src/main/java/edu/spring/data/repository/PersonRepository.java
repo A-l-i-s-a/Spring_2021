@@ -1,23 +1,24 @@
 package edu.spring.data.repository;
 
 import edu.spring.data.domain.Person;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
-import java.util.List;
+public interface PersonRepository extends ReactiveMongoRepository<Person, Integer> {
 
-@Repository
-public interface PersonRepository extends JpaRepository<Person, Integer>, JpaSpecificationExecutor<Person> {
+    Flux<Person> findAll();
 
-    Person findByName(String name);
+    Mono<Person> findByName(String name);
 
-    List<Person> findAllByName(String name);
+    Flux<Person> findAllByName(String name);
+
 
     int countByName(String name);
 
-    List<Person> findAllByNameLike(String str);
+    Flux<Person> findAllByNameLike(String str);
 
+    Mono<Person> save(Mono<Person> person);
 
 
 }
